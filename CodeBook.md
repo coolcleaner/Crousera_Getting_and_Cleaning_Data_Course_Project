@@ -21,4 +21,4 @@ subject_train_test = rbind(subject_train_raw, subject_test_raw)
 mean_std_index = grep("(mean|std)\\(", feature_raw[,2])
 x_train_test_mean_std<-x_train_test[, mean_std_index]
 ```
-`grep("(mean|std)\\(", feature_raw[,2])` returns the indices of the columns whose name contain `mean(` or `std(`. Thus `x_train_test_mean_std` only contains the measurements (columns) on mean and standard deviation. 
+`grep("(mean|std)\\(", feature_raw[,2])` returns the indices of the features whose name contain `mean(` or `std(`. Thus `x_train_test_mean_std` only contains the measurements (columns) on mean and standard deviation. 
