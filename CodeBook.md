@@ -29,13 +29,27 @@ Mapping the activity indices to meaningful labels by using `activity_label_raw`.
 y_train_test_label<-data.frame(activity_label_raw[y_train_test[,1],2])
 ```
 
-## Requirement 4: Appropriately labels the data set with descriptive variable names. 
+## Requirement 4: Appropriately labels the data set with descriptive variable names
 ```
 names(x_train_test_mean_std)<-feature_raw[mean_std_index,2]
 names(y_train_test_label)<-"Activity"
 names(subject_train_test)<-"Subject"
 ```
 
-
+## Requirement 5: From the data set in step 4, creates a second, independent tidy data set  with the average of each variable for each activity and each subject
+Combine the data from `x_train_test_mean_std`, `y_train_test_label`, and `subject_train_test`
+```
+data_set<-cbind(x_train_test_mean_std, y_train_test_label, subject_train_test)
+```
+Group the data by **Subject** and **Activity**, and then summarise the groups by taking **mean** to form the result `tidy_data`. 
+```
+tidy_data<-group_by(data_set, Subject, Activity) %>%
+    summarise_each(funs(mean))%>%
+    as.data.frame()
+```
+The result is then saved in txt format as **tidy_data.txt**.
+```
+write.table(tidy_data,"tidy_data.txt", row.names = FALSE)
+```
 
 
