@@ -1,4 +1,9 @@
-## Variables Containing Raw Data
+## Package required
+```
+library(dplyr)
+```
+
+## Variables containing raw data
 * x_train_raw: data frame read from "train/X_train.txt".
 * y_train_raw: data frame read from "train/y_train.txt".
 * subject_train_raw = data frame read from "train/subject_train.txt".
