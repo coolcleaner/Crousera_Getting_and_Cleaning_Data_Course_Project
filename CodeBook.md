@@ -9,6 +9,7 @@
 * activity_label_raw = data frame read from "activity_labels.txt".
 
 ## Requirement 1: Merges the training and the test sets to create one data set.
+Use `rbind()` to combine the train data and the test data. 
 ```
 x_train_test = rbind(x_train_raw, x_test_raw) 
 y_train_test = rbind(y_train_raw, y_test_raw) 
