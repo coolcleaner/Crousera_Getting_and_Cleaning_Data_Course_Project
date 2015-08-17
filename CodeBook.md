@@ -30,10 +30,11 @@ y_train_test_label<-data.frame(activity_label_raw[y_train_test[,1],2])
 ```
 
 ## Requirement 4: Appropriately labels the data set with descriptive variable names. 
+```
 names(x_train_test_mean_std)<-feature_raw[mean_std_index,2]
 names(y_train_test_label)<-"Activity"
 names(subject_train_test)<-"Subject"
-
+```
 
 
 
