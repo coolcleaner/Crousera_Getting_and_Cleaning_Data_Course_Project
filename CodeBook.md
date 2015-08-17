@@ -22,3 +22,9 @@ mean_std_index = grep("(mean|std)\\(", feature_raw[,2])
 x_train_test_mean_std<-x_train_test[, mean_std_index]
 ```
 `grep("(mean|std)\\(", feature_raw[,2])` returns the indices of the features whose name contain `mean(` or `std(`. Thus `x_train_test_mean_std` only contains the measurements (columns) on mean and standard deviation. 
+
+## Requirement 3: Uses descriptive activity names to name the activities in the data set
+Mapping the activity indices into meaningful labels by using `activity_label_raw`.
+```
+y_train_test_label<-data.frame(activity_label_raw[y_train_test[,1],2])
+```
