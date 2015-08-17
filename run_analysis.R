@@ -34,7 +34,9 @@ names(subject_train_test)<-"Subject"
 ## Requirement 5: From the data set in step 4, creates a second, independent tidy data set
 ## with the average of each variable for each activity and each subject.
 data_set<-cbind(x_train_test_mean_std, y_train_test_label, subject_train_test)
-tidy_data<-group_by(data_set, Activity, Subject) %>%
-    summarise_each(funs(mean))
+tidy_data<-group_by(data_set, Subject, Activity) %>%
+    summarise_each(funs(mean))%>%
+    as.data.frame()
 
+write.table(tidy_data,"tidy_data.txt", row.names = FALSE)
 
